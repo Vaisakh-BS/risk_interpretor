@@ -9,7 +9,7 @@ if uploaded_file is not None:
     with st.spinner("Analyzing..."):
         files = {"file": uploaded_file.getvalue()}
         try:
-            response = requests.post("http://localhost:8000/analyze_sop/", files=files)
+            response = requests.post("https://riskinterpretor-production.up.railway.app/analyze_sop/", files=files)
             if response.status_code == 200:
                 st.success("✅ Analysis Complete!")
                 result = response.json()["analysis"]
